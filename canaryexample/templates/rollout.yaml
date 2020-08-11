@@ -17,8 +17,8 @@ spec:
   strategy:
     canary:
       steps:
-        - setWeight: 20
-        - pause: {}    
+        - setWeight: 10
+        - pause: 30 seconds
   template:
     metadata:
       labels:
