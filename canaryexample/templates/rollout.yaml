@@ -9,7 +9,7 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: {{ template "helm-guestbook.name" . }}
@@ -17,7 +17,7 @@ spec:
   strategy:
     canary:
       steps:
-        - setWeight: 30
+        - setWeight: 10
         - pause: { duration: 1m }
   template:
     metadata:
